@@ -1,5 +1,4 @@
 var CHAVE_ARMAZENAMENTO = 'pansanatoUsuarios';
-
 var formulario = document.getElementById('formularioUsuario');
 var campoNome = document.getElementById('campoNome');
 var campoEmail = document.getElementById('campoEmail');

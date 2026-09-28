@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel Admin | Pansanato Language</title>
-    <link rel="stylesheet" href="/css/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel Admin | Pansanato Language</title>
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
-<body>
-    <header class="cabecalho">
-    <nav class="nav container" aria-label="Navegação principal">
 
+<body>
+  <header class="cabecalho">
+    <nav class="nav container" aria-label="Navegação principal">
       <a href="../index.html" class="marca">
         Pansanato <span>Language</span>
       </a>
@@ -29,11 +29,9 @@
         <li>
           <a href="../index.html#inicio">Início</a>
         </li>
-
         <li>
           <a href="../index.html#cursos">Cursos</a>
         </li>
-
         <li>
           <a href="admin.html">
             <span class="material-icons icone-menu" aria-hidden="true">
@@ -42,11 +40,9 @@
             Admin
           </a>
         </li>
-
         <li>
           <a href="login.html">Login</a>
         </li>
-
         <li>
           <a href="cadastro.html" class="botao-cta">
             Matricular-se
@@ -55,5 +51,92 @@
       </ul>
     </nav>
   </header>
+
+  <main class="pagina-formulario">
+    <div class="container">
+      <div class="cartao-formulario">
+        <h1>Painel administrativo</h1>
+        <p>
+          Cadastre novos usuários da plataforma informando
+          nome e e-mail. Os dados ficam salvos neste navegador.
+        </p>
+        <form id="formularioUsuario">
+          <div class="linha-dois-campos">
+            <div class="campo">
+              <label for="campoNome">Nome do usuário</label>
+              <input
+                type="text"
+                id="campoNome"
+                name="nome"
+                placeholder="Digite o nome completo"
+                required
+              />
+            </div>
+            <div class="campo">
+              <label for="campoEmail">E-mail</label>
+              <input
+                type="email"
+                id="campoEmail"
+                name="email"
+                placeholder="usuario@email.com"
+                required
+              />
+            </div>
+          </div>
+          <div class="linha-botoes-form">
+            <button type="submit" class="botao-form">
+              Cadastrar
+            </button>
+            <button
+              type="button"
+              id="botaoLimpar"
+              class="botao-limpar-form"
+            >
+              Limpar campos
+            </button>
+          </div>
+        </form>
+        <hr class="divisor-admin" />
+        <div class="cabecalho-lista-usuarios">
+          <h2>Usuários cadastrados</h2>
+          <div class="campo campo-pesquisa">
+            <label for="campoPesquisa">Pesquisar</label>
+            <input
+              type="text"
+              id="campoPesquisa"
+              placeholder="Buscar por nome ou e-mail"
+            />
+          </div>
+        </div>
+        <ul id="lista-usuarios" class="lista-usuarios"></ul>
+        <button
+          type="button"
+          id="botaoExcluirTodos"
+          class="botao-excluir-todos"
+        >
+          Excluir todos os usuários
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape-baixo">
+      <span>
+        &copy; 2026 Pansanato Language.
+        Todos os direitos reservados.
+      </span>
+      <a
+        href="https://exemplo.com/curriculo.pdf"
+        target="_blank"
+        rel="noopener"
+      >
+        Currículo do desenvolvedor
+      </a>
+    </div>
+  </footer>
+  <script src="../js/script.js"></script>
+  <script src="../js/admin.js"></script>
+
 </body>
 </html>
