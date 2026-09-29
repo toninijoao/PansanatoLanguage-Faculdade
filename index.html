@@ -6,38 +6,37 @@
   <title>Pansanato Language | Cursos de Inglês, Italiano e Francês</title>
   <meta name="description" content="Aprenda inglês, italiano ou francês com a Pansanato Language: aulas com professores nativos, método próprio e certificado ao final do curso." />
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
-<header class="cabecalho">
+  <header class="cabecalho">
   <nav class="nav container" aria-label="Navegação principal">
-  <a href="../index.html" class="logo-link">
-    <img src="../assets/logo.png" alt="Logo da plataforma">
-  </a>
+    <a href="#inicio" class="logo-link">
+      <img src="assets/logo.png" alt="Logo da plataforma">
+    </a>
 
-  <button id="botaoMenu" class="menu-toggle" aria-label="Abrir menu de navegação" aria-controls="menuNavegacao">
-    <span class="material-icons" aria-hidden="true">menu</span>
-  </button>
+    <button id="botaoMenu" class="menu-toggle" aria-label="Abrir menu de navegação" aria-controls="menuNavegacao">
+      <span class="material-icons" aria-hidden="true">menu</span>
+    </button>
 
-  <div class="navegacao" id="menuNavegacao">
-    <ul class="menu menu-central">
-      <li><a href="../index.html#inicio">Início</a></li>
-      <li><a href="../index.html#cursos">Cursos</a></li>
-      <li><a href="../index.html#como-funciona">Como funciona</a></li>
-    </ul>
+    <div class="navegacao" id="menuNavegacao">
+      <ul class="menu menu-central">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#cursos">Cursos</a></li>
+      </ul>
 
-    <ul class="menu menu-direita">
-      <li>
-        <a href="admin.html">
-          <span class="material-icons icone-menu" aria-hidden="true">admin_panel_settings</span>
-          Admin
-        </a>
-      </li>
-      <li><a href="login.html">Login</a></li>
-      <li><a href="cadastro.html" class="botao-cta">Matricular-se</a></li>
-    </ul>
-  </div>
+      <ul class="menu menu-direita">
+        <li>
+          <a href="html/admin.html">
+            <span class="material-icons icone-menu" aria-hidden="true">admin_panel_settings</span>
+            Admin
+          </a>
+        </li>
+        <li><a href="html/login.html">Login</a></li>
+        <li><a href="html/cadastro.html" class="botao-cta">Matricular-se</a></li>
+      </ul>
+    </div>
   </nav>
 </header>
 
@@ -107,7 +106,7 @@
         </div>
 
         <div class="grade-cursos">
-          <article class="cartao-curso">
+          <article class="cartao-curso" id="curso-ingles">
             <img src="assets/curso-ingles.webp" alt="Ilustração da torre do relógio Big Ben, representando o curso de inglês" />
             <div class="cartao-curso-corpo">
               <h3>Inglês</h3>
@@ -119,7 +118,7 @@
             </div>
           </article>
 
-          <article class="cartao-curso">
+          <article class="cartao-curso" id="curso-italiano">
             <img src="assets/curso-italiano.webp" alt="Ilustração do Coliseu, representando o curso de italiano" />
             <div class="cartao-curso-corpo">
               <h3>Italiano</h3>
@@ -131,7 +130,7 @@
             </div>
           </article>
 
-          <article class="cartao-curso">
+          <article class="cartao-curso" id="curso-frances">
             <img src="assets/curso-frances.jpg" alt="Ilustração da Torre Eiffel, representando o curso de francês" />
             <div class="cartao-curso-corpo">
               <h3>Francês</h3>
@@ -151,26 +150,33 @@
     <div class="container rodape-conteudo">
 
         <div class="rodape-marca">
-            <h3>Pansanato Language</h3>
+            <a href="#inicio" class="rodape-logo-link">
+              <img src="assets/logo.png" alt="Logo da Pansanato Language" class="rodape-logo" />
+            </a>
             <div class="rodape-social">
+              <a href="https://www.instagram.com/joao_tonini/" target="_blank" rel="noopener" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="https://github.com/toninijoao" target="_blank" rel="noopener" aria-label="GitHub">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/joaopansanato/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
             </div>
         </div>
-
         <div class="rodape-links">
             <h4>Cursos</h4>
-            <a href="#">Inglês</a>
-            <a href="#">Italiano</a>
-            <a href="#">Francês</a>
+            <a href="#curso-ingles">Inglês</a>
+            <a href="#curso-italiano">Italiano</a>
+            <a href="#curso-frances">Francês</a>
         </div>
-
         <div class="rodape-links">
             <h4>Institucional</h4>
-            <a href="#">Matricule-se</a>
+            <a href="html/cadastro.html">Matricule-se</a>
             <a href="html/admin.html">Painel administrativo</a>
         </div>
-
     </div>
-
     <div class="container rodape-baixo">
         <p>
             © 2026 Pansanato Language. Todos os direitos reservados.
