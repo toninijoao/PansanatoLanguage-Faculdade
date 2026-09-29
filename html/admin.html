@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,57 +10,40 @@
 
 <body>
   <header class="cabecalho">
-    <nav class="nav container" aria-label="Navegação principal">
-      <a href="../index.html" class="marca">
-        Pansanato <span>Language</span>
-      </a>
+  <nav class="nav container" aria-label="Navegação principal">
+    <a href="../index.html#inicio" class="logo-link">
+      <img src="../assets/logo.png" alt="Logo da plataforma">
+    </a>
 
-      <button
-        id="botaoMenu"
-        class="menu-toggle"
-        aria-label="Abrir menu de navegação"
-        aria-controls="menuNavegacao"
-      >
-        <span class="material-icons" aria-hidden="true">
-          menu
-        </span>
-      </button>
+    <button id="botaoMenu" class="menu-toggle" aria-label="Abrir menu de navegação" aria-controls="menuNavegacao">
+      <span class="material-icons" aria-hidden="true">menu</span>
+    </button>
 
-      <ul class="menu" id="menuNavegacao">
-        <li>
-          <a href="../index.html#inicio">Início</a>
-        </li>
-        <li>
-          <a href="../index.html#cursos">Cursos</a>
-        </li>
+    <div class="navegacao" id="menuNavegacao">
+      <ul class="menu menu-central">
+        <li><a href="../index.html#inicio">Início</a></li>
+        <li><a href="../index.html#cursos">Cursos</a></li>
+        <li><a href="../index.html#como-funciona">Como funciona</a></li>
+      </ul>
+
+      <ul class="menu menu-direita">
         <li>
           <a href="admin.html">
-            <span class="material-icons icone-menu" aria-hidden="true">
-              admin_panel_settings
-            </span>
+            <span class="material-icons icone-menu" aria-hidden="true">admin_panel_settings</span>
             Admin
           </a>
         </li>
-        <li>
-          <a href="login.html">Login</a>
-        </li>
-        <li>
-          <a href="cadastro.html" class="botao-cta">
-            Matricular-se
-          </a>
-        </li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="cadastro.html" class="botao-cta">Matricular-se</a></li>
       </ul>
-    </nav>
-  </header>
+    </div>
+  </nav>
+</header>
 
-  <main class="pagina-formulario">
+  <main class="pagina-formulario pagina-admin">
     <div class="container">
-      <div class="cartao-formulario">
-        <h1>Painel administrativo</h1>
-        <p>
-          Cadastre novos usuários da plataforma informando
-          nome e e-mail. Os dados ficam salvos neste navegador.
-        </p>
+      <h1 class="titulo-pagina-admin">Gerenciamento de Usuários</h1>
+      <div class="cartao-formulario cartao-admin">
         <form id="formularioUsuario">
           <div class="linha-dois-campos">
             <div class="campo">
@@ -68,7 +52,7 @@
                 type="text"
                 id="campoNome"
                 name="nome"
-                placeholder="Digite o nome completo"
+                placeholder="Nome completo"
                 required
               />
             </div>
@@ -78,7 +62,7 @@
                 type="email"
                 id="campoEmail"
                 name="email"
-                placeholder="usuario@email.com"
+                placeholder="email@exemplo.com"
                 required
               />
             </div>
@@ -87,35 +71,31 @@
             <button type="submit" class="botao-form">
               Cadastrar
             </button>
-            <button
-              type="button"
-              id="botaoLimpar"
-              class="botao-limpar-form"
-            >
+            <button type="button" id="botaoLimpar" class="botao-limpar-form">
               Limpar campos
             </button>
           </div>
         </form>
-        <hr class="divisor-admin" />
-        <div class="cabecalho-lista-usuarios">
-          <h2>Usuários cadastrados</h2>
-          <div class="campo campo-pesquisa">
-            <label for="campoPesquisa">Pesquisar</label>
-            <input
-              type="text"
-              id="campoPesquisa"
-              placeholder="Buscar por nome ou e-mail"
-            />
-          </div>
+      </div>
+      <div class="cartao-formulario cartao-admin">
+        <div class="secao-usuarios-topo">
+          <h2>
+            Usuários cadastrados
+            <span id="contadorUsuarios" class="contador-usuarios">(0)</span>
+          </h2>
         </div>
-        <ul id="lista-usuarios" class="lista-usuarios"></ul>
-        <button
-          type="button"
-          id="botaoExcluirTodos"
-          class="botao-excluir-todos"
-        >
-          Excluir todos os usuários
+        <div class="campo-busca">
+          <input
+            type="text"
+            id="campoPesquisa"
+            placeholder="Pesquisar por nome ou e-mail..."
+            aria-label="Pesquisar usuários cadastrados"
+          />
+        </div>
+        <button type="button" id="botaoExcluirTodos" class="botao-excluir-todos">
+          Excluir todos os registros
         </button>
+        <ul id="lista-usuarios" class="lista-usuarios"></ul>
       </div>
     </div>
   </main>
@@ -126,7 +106,6 @@
         &copy; 2026 Pansanato Language.
         Todos os direitos reservados.
       </span>
-      <a
         href="https://exemplo.com/curriculo.pdf"
         target="_blank"
         rel="noopener"
@@ -137,6 +116,5 @@
   </footer>
   <script src="../js/script.js"></script>
   <script src="../js/admin.js"></script>
-
 </body>
 </html>

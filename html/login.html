@@ -9,53 +9,35 @@
 
 <body>
   <header class="cabecalho">
-    <nav class="nav container" aria-label="Navegação principal">
-      <a href="../index.html" class="marca">
-        Pansanato <span>Language</span>
-      </a>
+  <nav class="nav container" aria-label="Navegação principal">
+    <a href="../index.html#inicio" class="logo-link">
+      <img src="../assets/logo.png" alt="Logo da plataforma">
+    </a>
 
-      <button
-        id="botaoMenu"
-        class="menu-toggle"
-        aria-label="Abrir menu de navegação"
-        aria-controls="menuNavegacao"
-      >
-        <span class="material-icons" aria-hidden="true">
-          menu
-        </span>
-      </button>
+    <button id="botaoMenu" class="menu-toggle" aria-label="Abrir menu de navegação" aria-controls="menuNavegacao">
+      <span class="material-icons" aria-hidden="true">menu</span>
+    </button>
 
-      <ul class="menu" id="menuNavegacao">
+    <div class="navegacao" id="menuNavegacao">
+      <ul class="menu menu-central">
+        <li><a href="../index.html#inicio">Início</a></li>
+        <li><a href="../index.html#cursos">Cursos</a></li>
+        <li><a href="../index.html#como-funciona">Como funciona</a></li>
+      </ul>
 
-        <li>
-          <a href="../index.html#inicio">Início</a>
-        </li>
-
-        <li>
-          <a href="../index.html#cursos">Cursos</a>
-        </li>
-
+      <ul class="menu menu-direita">
         <li>
           <a href="admin.html">
-            <span class="material-icons icone-menu" aria-hidden="true">
-              admin_panel_settings
-            </span>
+            <span class="material-icons icone-menu" aria-hidden="true">admin_panel_settings</span>
             Admin
           </a>
         </li>
-
-        <li>
-          <a href="login.html">Login</a>
-        </li>
-
-        <li>
-          <a href="cadastro.html" class="botao-cta">
-            Matricular-se
-          </a>
-        </li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="cadastro.html" class="botao-cta">Matricular-se</a></li>
       </ul>
-    </nav>
-  </header>
+    </div>
+  </nav>
+</header>
 
   <main class="pagina-formulario">
     <div class="container">

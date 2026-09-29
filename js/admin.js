@@ -1,4 +1,5 @@
 var CHAVE_ARMAZENAMENTO = 'pansanatoUsuarios';
+
 var formulario = document.getElementById('formularioUsuario');
 var campoNome = document.getElementById('campoNome');
 var campoEmail = document.getElementById('campoEmail');
@@ -6,10 +7,16 @@ var campoPesquisa = document.getElementById('campoPesquisa');
 var listaUsuarios = document.getElementById('lista-usuarios');
 var botaoLimpar = document.getElementById('botaoLimpar');
 var botaoExcluirTodos = document.getElementById('botaoExcluirTodos');
+var contadorUsuarios = document.getElementById('contadorUsuarios');
 
 document.addEventListener('DOMContentLoaded', function () {
   renderizarLista(obterUsuarios());
+  atualizarContador();
 });
+
+function atualizarContador() {
+  contadorUsuarios.textContent = '(' + obterUsuarios().length + ')';
+}
 
 function obterUsuarios() {
   var dadosSalvos = localStorage.getItem(CHAVE_ARMAZENAMENTO);
@@ -25,13 +32,13 @@ function salvarUsuarios(usuarios) {
   localStorage.setItem(CHAVE_ARMAZENAMENTO, JSON.stringify(usuarios));
 }
 
-function renderizarLista(usuarios) {
+function renderizarLista(usuarios, mensagemVazia) {
   listaUsuarios.innerHTML = '';
 
   if (usuarios.length === 0) {
     var vazio = document.createElement('li');
     vazio.className = 'mensagem-vazia';
-    vazio.textContent = 'Nenhum usuário cadastrado ainda.';
+    vazio.textContent = mensagemVazia || 'Nenhum usuário cadastrado ainda.';
     listaUsuarios.appendChild(vazio);
     return;
   }
@@ -72,7 +79,7 @@ function renderizarLista(usuarios) {
 }
 
 function cadastrarUsuario(evento) {
-  evento.preventDefault(); // impede o recarregamento da página
+  evento.preventDefault();
 
   var nome = campoNome.value.trim();
   var email = campoEmail.value.trim();
@@ -93,6 +100,7 @@ function cadastrarUsuario(evento) {
   salvarUsuarios(usuarios);
 
   renderizarLista(usuarios);
+  atualizarContador();
   limparCampos();
 }
 
@@ -107,6 +115,7 @@ function excluirUsuario(indice, usuarioEsperado) {
   usuarios.splice(indice, 1);
   salvarUsuarios(usuarios);
   renderizarLista(usuarios);
+  atualizarContador();
 }
 
 function excluirTodosUsuarios() {
@@ -123,6 +132,7 @@ function excluirTodosUsuarios() {
 
   localStorage.removeItem(CHAVE_ARMAZENAMENTO);
   renderizarLista([]);
+  atualizarContador();
 }
 
 function limparCampos() {
@@ -144,7 +154,7 @@ function pesquisarUsuarios() {
            usuario.email.toLowerCase().indexOf(termo) !== -1;
   });
 
-  renderizarLista(filtrados);
+  renderizarLista(filtrados, 'Nenhum usuário encontrado para "' + campoPesquisa.value.trim() + '".');
 }
 
 formulario.addEventListener('submit', cadastrarUsuario);
