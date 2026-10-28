@@ -25,7 +25,15 @@ function obterUsuarios() {
     return [];
   }
 
-  return JSON.parse(dadosSalvos);
+  var usuarios = JSON.parse(dadosSalvos);
+
+  usuarios.forEach(function (usuario, indice) {
+    if (usuario.id === undefined) {
+      usuario.id = Date.now() + indice;
+    }
+  });
+
+  return usuarios;
 }
 
 function salvarUsuarios(usuarios) {
@@ -43,7 +51,7 @@ function renderizarLista(usuarios, mensagemVazia) {
     return;
   }
 
-  usuarios.forEach(function (usuario, indice) {
+  usuarios.forEach(function (usuario) {
     var item = document.createElement('li');
     item.className = 'item-usuario';
 
@@ -69,7 +77,7 @@ function renderizarLista(usuarios, mensagemVazia) {
     botaoExcluir.className = 'botao-excluir-item';
     botaoExcluir.textContent = 'Excluir';
     botaoExcluir.addEventListener('click', function () {
-      excluirUsuario(indice, usuario);
+      excluirUsuario(usuario);
     });
 
     item.appendChild(info);
@@ -90,6 +98,7 @@ function cadastrarUsuario(evento) {
   }
 
   var novoUsuario = {
+    id: Date.now(),
     nome: nome,
     email: email,
     data: new Date().toLocaleString('pt-BR')
@@ -104,17 +113,18 @@ function cadastrarUsuario(evento) {
   limparCampos();
 }
 
-function excluirUsuario(indice, usuarioEsperado) {
-  var usuarios = obterUsuarios();
-
-  var confirmar = confirm('Deseja excluir o usuário "' + usuarioEsperado.nome + '"?');
+function excluirUsuario(usuarioAlvo) {
+  var confirmar = confirm('Deseja excluir o usuário "' + usuarioAlvo.nome + '"?');
   if (!confirmar) {
     return;
   }
 
-  usuarios.splice(indice, 1);
+  var usuarios = obterUsuarios().filter(function (usuario) {
+    return usuario.id !== usuarioAlvo.id;
+  });
+
   salvarUsuarios(usuarios);
-  renderizarLista(usuarios);
+  pesquisarUsuarios();
   atualizarContador();
 }
 
